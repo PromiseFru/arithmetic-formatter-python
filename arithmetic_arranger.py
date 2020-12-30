@@ -21,10 +21,12 @@ def arithmetic_arranger(problems, solution = False):
             if nonDigit:
                 print('Error: Numbers must only contain digits')
                 return
+            
+            if len(stripOperand) > 4:
+                print('Error: Numbers cannot be more than four digits')
+                return
 
-    for item in problems:
-        print(operands)
     # return arranged_problems
 
-test = ["32 + 698", "3801 - 2", "45 * 43", "123 + 49"]
+test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
 arithmetic_arranger(test)
