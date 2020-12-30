@@ -56,8 +56,26 @@ def arithmetic_arranger(problems, solution = False):
         sol = "{} {}    "
 
         arrangged_problems += sol.format(sign, second.rjust(len(str(biggest))))
+
+     # line break
+    arrangged_problems += "\n"
+
+    # print dashes
+    for item in problems:
+        operands = re.split('[+|-]', item)
+        first = operands[0].strip()
+        second = operands[1].strip()
+        sign = re.search('[+|-]', item).group()
+        biggest = max([int(first), int(second)])
+        dashes = ""
+        for i in range(len(str(biggest))+2):
+            dashes += "-"
+
+        sol = "{}    "
+
+        arrangged_problems += sol.format(dashes)
         
-    print(arrangged_problems)
+    return arrangged_problems
 #     # return test
 
 test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
