@@ -35,7 +35,7 @@ def arithmetic_arranger(problems, solution = False):
         for i in range(len(str(biggest))+2):
             dashes += "-"
 
-        sol = "{}   "
+        sol = "{}    "
 
         arrangged_problems += sol.format(first.rjust(len(str(biggest))+2))
 
@@ -53,7 +53,7 @@ def arithmetic_arranger(problems, solution = False):
         for i in range(len(str(biggest))+2):
             dashes += "-"
 
-        sol = "{} {}  "
+        sol = "{} {}    "
 
         arrangged_problems += sol.format(sign, second.rjust(len(str(biggest))))
         
