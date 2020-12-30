@@ -26,7 +26,20 @@ def arithmetic_arranger(problems, solution = False):
                 print('Error: Numbers cannot be more than four digits.')
                 return
 
+        first = operands[0].strip()
+        second = operands[1].strip()
+        sign = re.search('[+|-]', item).group()
+        biggest = max([int(first), int(second)])
+        dashes = ""
+
+        for i in range(len(str(biggest))+2):
+            dashes += "-"
+
+        arrangged_problems = "{}\n{} {}\n{}"
+
+        print(arrangged_problems.format(first.rjust(len(str(biggest))+2), sign, second.rjust(len(str(biggest))), dashes))
+        # print(dashes)
     # return arranged_problems
 
-# test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
-# arithmetic_arranger(test)
+test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
+arithmetic_arranger(test)
