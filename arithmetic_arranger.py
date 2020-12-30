@@ -40,6 +40,7 @@ def arithmetic_arranger(problems, solution = False):
         arrangged_problems += sol.format(first.rjust(len(str(biggest))+2))
 
     # line break
+    arrangged_problems = arrangged_problems.rstrip()
     arrangged_problems += "\n"
 
     # print bottom digits
@@ -58,6 +59,7 @@ def arithmetic_arranger(problems, solution = False):
         arrangged_problems += sol.format(sign, second.rjust(len(str(biggest))))
 
      # line break
+    arrangged_problems = arrangged_problems.rstrip()
     arrangged_problems += "\n"
 
     # print dashes
@@ -75,6 +77,7 @@ def arithmetic_arranger(problems, solution = False):
 
         arrangged_problems += sol.format(dashes)
         
+    arrangged_problems = arrangged_problems.rstrip()
     return arrangged_problems
 #     # return test
 
