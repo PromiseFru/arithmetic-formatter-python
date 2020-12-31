@@ -1,4 +1,10 @@
 import re
+import operator
+
+ops = {
+    "+": operator.add,
+    "-": operator.sub
+}
 
 def arithmetic_arranger(problems, solution = False):
     # more than five problems
@@ -78,8 +84,23 @@ def arithmetic_arranger(problems, solution = False):
         arrangged_problems += sol.format(dashes)
         
     arrangged_problems = arrangged_problems.rstrip()
-    return arrangged_problems
-#     # return test
 
-test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
-arithmetic_arranger(test)
+    if solution:
+        arrangged_problems += "\n"
+        # print solution
+        for item in problems:
+            operands = re.split('[+|-]', item)
+            first = int(operands[0])
+            second = int(operands[1])
+            biggest = max([first,second])
+            sign = re.search('[+|-]', item).group()
+            solve = ops[sign](first,second)
+           
+            sol = "{}    "
+            arrangged_problems += sol.format(str(solve).rjust(len(str(biggest))+2))
+        arrangged_problems = arrangged_problems.rstrip()
+
+    return arrangged_problems
+
+# test = ["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]
+# arithmetic_arranger(test)
